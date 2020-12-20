@@ -1,12 +1,13 @@
 """
 Python 3.x code to rename all the files inside all the subsequent directories as the parent directory name
-Version 1.0
+Version 1.0.1
 """
 
 import os
 
 
 def main():
+    print("Welcome to the simple renamer tool!", "Developed by KazzyJr", "(c)2020-2021", sep='\n')
     test = True
     while test:
         input_opt = input("One folder (1) or the entire tree of one folder (2)? ")
