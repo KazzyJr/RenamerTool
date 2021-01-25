@@ -1,16 +1,18 @@
 """
 Python 3.x code to rename all the files inside all the subsequent directories as the parent directory name
-Version 1.0.1
+Version 1.0.3
+Changelog:
+- Added prints for the current working dirs
+- Moved the trademark from the main function
 """
 
 import os
 
 
 def main():
-    print("Welcome to the simple renamer tool!", "Developed by KazzyJr", "(c)2020-2021", sep='\n')
     test = True
     while test:
-        input_opt = input("One folder (1) or the entire tree of one folder (2)? ")
+        input_opt = input("One folder (1) r the entire tree of one folder (2)? ")
         if input_opt == "1":
             input_dir = input("Base folder: ")
             if_single(input_dir)
@@ -28,6 +30,7 @@ def main():
 
 def if_dir(input_dir):
     source = input_dir
+    print(f"Working on {source}")
     for filename in enumerate(os.listdir(source)):
         if os.path.isdir(os.path.join(source, filename[1])):  # This tests if we have a file or a folder
             path = os.path.join(source, filename[1])
@@ -38,6 +41,7 @@ def if_dir(input_dir):
 
 def if_single(input_dir):
     source = input_dir
+    print(f"Working on {source}")
     for filename in enumerate(os.listdir(source)):
         if_file(filename, source)
 
@@ -61,6 +65,7 @@ def if_file(filename, source):
 
 if __name__ == '__main__':
     prompt = "y"
+    print("Welcome to the simple ReNamer tool! V1.0.3", "Developed by KazzyJr", "(c)2020-2021", sep='\n')
     while prompt == "y":
         main()
         prompt = input("Do you want to rename another base directory? y/n ")
